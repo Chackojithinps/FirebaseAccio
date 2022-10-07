@@ -10,9 +10,15 @@ const Hello = () => {
         setMessege(e.target.value)
     }
     const submitItems=(e)=>{
-        e.preventDefault()
-        console.log(name)
-        console.log(messege)
+       fetch('https://learning-at-accio-default-rtdb.asia-southeast1.firebasedatabase.app/messege.json',
+       {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          userName:name,
+          useMessege:messege
+        })
+       })
     }
   return (
     <div>
